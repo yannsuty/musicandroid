@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/TrackListFragment">
+    app:startDestination="@id/CompetitionListFragment">
 
     <fragment
-        android:id="@+id/TrackListFragment"
-        android:name="com.example.musicandroid.list.TrackListFragment"
+        android:id="@+id/CompetitionListFragment"
+        android:name="com.example.musicandroid.list.CompetitionListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_track_list">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_CompetitionListFragment_to_CompetitionFragment"
+            app:destination="@id/CompetitionFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/CompetitionFragment"
         android:name="com.example.musicandroid.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/TrackListFragment" />
+            app:destination="@id/CompetitionListFragment" />
     </fragment>
 </navigation>

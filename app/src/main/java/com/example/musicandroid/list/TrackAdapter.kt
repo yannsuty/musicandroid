@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.musicandroid.R
+import com.example.musicandroid.model.Competition
 
-class TrackAdapter(private var dataSet: List<String>):
-    RecyclerView.Adapter<TrackAdapter.ViewHolder>() {
+class TrackAdapter(private var dataSet: List<Competition>): RecyclerView.Adapter<TrackAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val trackView: TextView
@@ -18,7 +18,7 @@ class TrackAdapter(private var dataSet: List<String>):
         }
     }
 
-    fun setDataSet(list: List<String>) {
+    fun setDataSet(list: List<Competition>) {
         dataSet = list
         notifyDataSetChanged()
     }
@@ -30,7 +30,8 @@ class TrackAdapter(private var dataSet: List<String>):
     }
 
     override fun onBindViewHolder(holder: TrackAdapter.ViewHolder, position: Int) {
-        holder.trackView.text = dataSet[position].toString()
+        val competition = dataSet[position]
+        holder.trackView.text = competition.toString()
     }
 
     override fun getItemCount() = dataSet.size
