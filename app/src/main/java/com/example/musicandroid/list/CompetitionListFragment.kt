@@ -5,13 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicandroid.API.CompetitionListResponse
 import com.example.musicandroid.API.CompetitionApi
 import com.example.musicandroid.R
-import com.example.musicandroid.databinding.FragmentTrackListBinding
-import com.example.musicandroid.model.Competition
+import com.example.musicandroid.databinding.FragmentListBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 class CompetitionListFragment : Fragment() {
 
-    private var _binding: FragmentTrackListBinding? = null
+    private var _binding: FragmentListBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -39,7 +39,7 @@ class CompetitionListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTrackListBinding.inflate(inflater, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -85,7 +85,9 @@ class CompetitionListFragment : Fragment() {
         _binding = null
     }
 
-    fun onClickedCompetition(competition: Competition) {
-        findNavController().navigate(R.id.action_CompetitionListFragment_to_CompetitionFragment)
+    fun onClickedCompetition(competition: String) {
+        findNavController().navigate(R.id.action_CompetitionListFragment_to_CompetitionFragment, bundleOf(
+            "competition" to competition
+        ))
     }
 }

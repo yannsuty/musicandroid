@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.musicandroid.R
 import com.example.musicandroid.model.Competition
 
-class TrackAdapter(private var dataSet: List<Competition>, var listener: ((Competition)->Unit)?): RecyclerView.Adapter<TrackAdapter.ViewHolder>() {
+class TrackAdapter(private var dataSet: List<Competition>, var listener: ((String)->Unit)?): RecyclerView.Adapter<TrackAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val trackView: TextView
@@ -33,7 +33,7 @@ class TrackAdapter(private var dataSet: List<Competition>, var listener: ((Compe
         val competition = dataSet[position]
         holder.trackView.text = competition.toString()
         holder.itemView.setOnClickListener {
-            listener?.invoke(competition)
+            listener?.invoke(competition.name)
         }
     }
 

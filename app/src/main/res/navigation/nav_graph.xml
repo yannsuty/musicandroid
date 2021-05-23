@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/CompetitionListFragment"
         android:name="com.example.musicandroid.list.CompetitionListFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_track_list">
+        android:label="@string/list_fragment_label"
+        tools:layout="@layout/fragment_list">
 
         <action
             android:id="@+id/action_CompetitionListFragment_to_CompetitionFragment"
@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/CompetitionFragment"
-        android:name="com.example.musicandroid.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:name="com.example.musicandroid.detail.CompetitionDetailFragment"
+        android:label="@string/detial_fragment_label"
+        tools:layout="@layout/fragment_detail">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
