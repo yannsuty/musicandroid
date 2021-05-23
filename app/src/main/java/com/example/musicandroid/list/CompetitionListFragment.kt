@@ -30,7 +30,7 @@ class CompetitionListFragment : Fragment() {
     private val binding get() = _binding!!
 
     //Adapter for list
-    private val adapter = TrackAdapter(listOf())
+    private val adapter = TrackAdapter(listOf(), ::onClickedCompetition)
 
     //Layout for list
     private val layoutManager = LinearLayoutManager(context)
@@ -83,5 +83,9 @@ class CompetitionListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun onClickedCompetition(competition: Competition) {
+        findNavController().navigate(R.id.action_CompetitionListFragment_to_CompetitionFragment)
     }
 }
