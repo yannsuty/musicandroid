@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicandroid.API.CompetitionListResponse
 import com.example.musicandroid.API.CompetitionApi
+import com.example.musicandroid.API.CompetitionSingletonApi
 import com.example.musicandroid.R
 import com.example.musicandroid.databinding.FragmentListBinding
 import retrofit2.Call
@@ -51,22 +52,9 @@ class CompetitionListFragment : Fragment() {
         binding.recyclerviewTrack.layoutManager = this.layoutManager
 
 
-        val listeTracks = arrayListOf<String>().apply {
-            add("Test1")
-            add("Test2")
-            add("Test3")
-            add("Test4")
-            add("Test5")
-        }
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.football-data.org/v2/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
-        val competitionApi: CompetitionApi = retrofit.create(CompetitionApi::class.java)
-
-        competitionApi.getCompetitionList("TIER_ONE").enqueue(object: Callback<CompetitionListResponse> {
+        CompetitionSingletonApi.competitionApi.getCompetitionList("TIER_ONE").enqueue(object: Callback<CompetitionListResponse> {
             override fun onFailure(call: Call<CompetitionListResponse>, t: Throwable) {
                 TODO("Not yet implemented")
             }
