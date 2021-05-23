@@ -1,5 +1,6 @@
 package com.example.musicandroid.list
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.example.musicandroid.API.CompetitionApi
 import com.example.musicandroid.API.CompetitionSingletonApi
 import com.example.musicandroid.R
 import com.example.musicandroid.databinding.FragmentListBinding
+import com.example.musicandroid.model.Competition
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,9 +53,10 @@ class CompetitionListFragment : Fragment() {
         binding.recyclerviewTrack.adapter = this.adapter
         binding.recyclerviewTrack.layoutManager = this.layoutManager
 
+        callApi()
+    }
 
-
-
+    private fun callApi() {
         CompetitionSingletonApi.competitionApi.getCompetitionList("TIER_ONE").enqueue(object: Callback<CompetitionListResponse> {
             override fun onFailure(call: Call<CompetitionListResponse>, t: Throwable) {
                 TODO("Not yet implemented")
